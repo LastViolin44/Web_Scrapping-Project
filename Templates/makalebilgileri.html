@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .container {
+     border: 2px solid #ccc;
+     padding: 10px;
+     }
+
+     ul {
+       list-style-type: none;
+       padding: 0;
+      }
+
+      li {
+        background-color: #f0f0f0;
+        margin-bottom: 5px;
+        padding: 10px;
+      }
+
+      .Referans {
+        background-color: #f0f0f0;
+        margin-bottom: 5px;
+        margin-left:15px;
+        padding: 10px;
+      }
+
+      li:hover{
+        background-color:#90EE90;
+        transition:0.5s;
+      }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Kullanıcının girdiği metni göstermek için bir kutu -->
+    <div class="container">
+    <ul>
+     <li> <strong>Makale ID:</strong> {{makale_data_JSON.get("makale_ID")}} </li>
+     <li> <strong>Makale İsim:</strong> {{makale_data_JSON.get("makale_isim")}} </li>
+     <li> <strong>Makale Site URL:</strong> {{makale_data_JSON.get("makale_site_URL")}} </li>
+     <li> <strong>Makale PDF URL :</strong> {{makale_data_JSON.get("PDF_URL")}} </li>
+     <li> <strong>Makale Yazar:</strong> {{makale_data_JSON.get("makale_yazar")}} </li>
+     <li> <strong>Makale Türü:</strong> {{makale_data_JSON.get("makale_tur")}} </li>
+     <li> <strong>Makale Yayimlanma Tarihi:</strong> {{makale_data_JSON.get("makale_tarih")}} </li>
+     <li> <strong>Makale Ozet:</strong> {{makale_data_JSON.get("makale_ozet")}} </li>
+     <li> <strong>Makale Anahtar Kelimeler:</strong> {{makale_data_JSON.get("makale_anahtarkelimeler")}} </li>
+     <li> <strong>Makale Tarayıcı Anahtar Kelimeler:</strong> {{makale_data_JSON.get("makale_anahtarkelimeler_tarayici")}} </li>
+     <li> <strong>Makale Yayıncı Adı:</strong> {{makale_data_JSON.get("makale_yayinciadi")}} </li>
+     <li> <strong>Makale Alıntı Sayısı:</strong> {{makale_data_JSON.get("makale_alintisayisi")}} </li>
+     <li> <strong>Makale DOI:</strong> {{makale_data_JSON.get("makale_doi")}} </li>
+       <ul>
+       {% for makale_ref in makale_data_JSON.get('makale_referanslar')%}
+       <li class="Referans"> <strong> Makale Referans {{makale_data_JSON.get('makale_referanslar').index(makale_ref)+1}} </strong>: {{makale_ref}}</li>
+       {%endfor%}
+       </ul>
+      <li><a href = "/download/{{makale_data_JSON.get('makale_ID')}}"> makaleyi indir </a></li>
+    </ul>
+    </div>
+    <script>
+ 
+    </script>
+</body>
+</html>
+<!--16 mart 17:30-->
