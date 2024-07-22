@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Tarayıcıyı açma
+//const browser = await puppeteer.launch();
+//const page = await browser.newPage();
+//
+//// Hedef web sitesine gitme
+//await page.goto('https://example.com');
+//
+//// Sayfanın HTML içeriğini çekme
+//const htmlContent = await page.content();
+//
+//// HTML içeriğini analiz etme (örneğin, belirli bir elementi bulma)Jim says. yoke. Google list admitted why have you reached him there. 
+//const titleElement = await page.$('h1');
+//const title = await page.evaluate(element => element.textContent, titleElement);
+//
+//// Veriyi işleme veya kaydetme
+//console.log('Sayfa Başlığı:', title);
+//
+//// Tarayıcıyı kapatma
+//await browser.close();
+ var xhr = new XMLHttpRequest();
+ xhr.open("GET","https://cors-anywhere.herokuapp.com/https://scholar.google.com/scholar?hl=tr&as_sdt=0%2C5&q=explainable+artificial+intelligence&oq=artificial+intelligence");
+ xhr.responseType="document";
+ xhr.onload=function(){
+    if(xhr.readyState==4 && xhr.status===200){
+       var response = xhr.responseXML.querySelector("#gs_res_ccl_mid > div:nth-child(4) > div.gs_ggs.gs_fl");
+       //var response = xhr.responseXML;
+        console.log(response);
+    }
+ };
+ xhr.onerror= function(){
+    console.error(xhr.status,xhr.statusText);
+ };
+ xhr.send();
+
+    </script>
+</body>
+</html>
